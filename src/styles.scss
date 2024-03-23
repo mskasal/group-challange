@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+.cell {
+  border: 1px solid grey;
+  padding: 20px;
+  border-collapse: collapse;
+}
+
+.calendar__table {
+  position: relative;
+}
+
+.time__cells {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px;
+  grid-auto-flow: row dense;
+}
+
+.note {
+  background: grey;
+  margin: 3px;
+  grid-area: var(--start-row) / var(--start-column) / var(--end-row) / var(--end-column);
+}
+
+.calendar__notes {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  grid-auto-flow: row dense;
+  top: 0;
+  left: 0;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
