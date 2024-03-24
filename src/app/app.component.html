@@ -17,9 +17,11 @@
         </mat-form-field>
       </div>
       <div class="calendar__weeks">
-        <button type="button">Prev</button>
-        <span>calendar week: 31</span>
-        <button type="button">Next</button>
+        <button type="button" (click)="filterWeekPrev()">Prev</button>
+        @if (week$ | async; as week) {
+          <span>calendar week: {{ week.index }}</span>
+        }
+        <button type="button" (click)="filterWeekNext()">Next</button>
       </div>
     </div>
     <div class="calendar__table">
@@ -38,12 +40,13 @@
             class="note"
             style="
               --start-row: 1;
-              --start-column: 3;
+              --start-column: {{note.daysOfWeek[0]}};
               --end-row: 3;
-              --end-column: 5;
+              --end-column: {{note.daysOfWeek[1]}};
             "
           >
             {{ note.title }}
+            {{ note.friendlyDate}}
           </div>
         } @empty {
           <li>There are no items.</li>

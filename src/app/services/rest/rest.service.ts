@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Note, NoteLabel } from "../../models/note.model";
+import { Note } from "../../models/note.model";
+import { Label } from "../../models/label.model";
 
 @Injectable({
   providedIn: "root",
@@ -15,6 +16,6 @@ export class RestService {
   }
 
   getNoteLabels() {
-    return this.http.get<NoteLabel[]>(`${this.apiUrl}/noteLabels`);
+    return this.http.get<Label[]>(`${this.apiUrl}/noteLabels`);
   }
 }
